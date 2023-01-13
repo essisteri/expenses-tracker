@@ -1,0 +1,31 @@
+{
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1"
+  },
+  "name": "2022-wk49-final-project-essisteri",
+  "description": "Most of us want to know where our money goes. You now have the chance to create a solution to that question. Create an application for tracking your personal expenses.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "eslint": "^8.31.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiko-4A00EZ62/2022-wk49-final-project-essisteri.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tiko-4A00EZ62/2022-wk49-final-project-essisteri/issues"
+  },
+  "homepage": "https://github.com/tiko-4A00EZ62/2022-wk49-final-project-essisteri#readme"
+}
