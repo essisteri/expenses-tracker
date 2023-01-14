@@ -12,11 +12,10 @@ function App() {
 
   const [newShop, setNewShop] = useState("");
 
-  //Fetchin data from json-server
   const fetchData = async () => {
     try {
       let response = await axios.get(
-        "https://expences-app-essi.onrender.com/api/expenses"
+        `${process.env.REACT_APP_BACKEND}/api/expenses/`
       );
       if (response.data.length > 0) {
         setTasks(response.data);
@@ -34,7 +33,7 @@ function App() {
   const deleteTask = (id) => {
     if (window.confirm("Haluatko varmasti poistaa tehtävän?")) {
       axios
-        .delete(`https://expences-app-essi.onrender.com/api/expenses/${id}`)
+        .delete(`${process.env.REACT_APP_BACKEND}/api/expenses/${id}`)
         .then(() => {
           let response = tasks.filter((item) => id !== item.id);
           setTasks(response);
@@ -54,7 +53,7 @@ function App() {
     };
 
     axios
-      .post("https://expences-app-essi.onrender.com/api/expenses", taskItem)
+      .post(`${process.env.REACT_APP_BACKEND}/api/expenses`, taskItem)
       .then((response) => {
         setTasks(tasks.concat(response.data));
         setNewDate("");
