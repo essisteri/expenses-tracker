@@ -77,6 +77,8 @@ http://localhost:5000/api/expenses/
 
 ## Project self evaluation
 
+_I didn't have time to do frontend or do everything perfectly (as a 30+ career changer and mom my time is so limited) but it is nice that I can keep develop this project and maybe later I have a project to my portfolio :relaxed:. I hope this is enough for me to pass the course._
+
 ### A. Solution Design (20%)
 
 12 Solution partially planned out
