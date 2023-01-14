@@ -1,0 +1,208 @@
+
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Simple Expenses tracking app
+  description: A simple API to teach Backend development and OpenAPI concepts
+servers:
+  - url: https://expences-app-essi.onrender.com/api/
+paths:
+  /expenses:
+    get:
+      description: Returns a array of expenses              
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Expense'
+        '500':
+          $ref: '#/components/responses/500Error'
+    post:
+      description: Creates a new expense
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object 
+              properties:
+                date:
+                  type: string
+                amount:
+                  type: number
+                shop:
+                  type: string
+                category:
+                  type: string
+      responses:
+        '201':
+          description: Created succesfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Expense'
+        '400':
+          $ref: '#/components/responses/400Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+        '500':
+          $ref: '#/components/responses/500Error'
+
+    put:
+      description: Updates an existing expense
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Expense'
+      responses:
+        '200':
+          description: Updated succesfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Expense'
+        '400':
+          $ref: '#/components/responses/400Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+        '500':
+          $ref: '#/components/responses/500Error'
+
+  /expenses/{id}:
+    get:
+      description: Obtain information about a specific expense
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully returned a expense
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Expense'
+        '400':
+          $ref: '#/components/responses/400Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+        '500':
+          $ref: '#/components/responses/500Error'
+    delete:
+      description: Delete a  specific expense
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Expense deleted
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Expense deleted
+                
+  /expenses/{year}/{month}:
+    get:
+      description: Obtain information about a specific year and month
+      parameters:
+        - name: year
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: month
+          in: path
+          required: true
+          schema:
+            type: integer    
+      responses:
+        '200':
+          description: Successfully returned expenses
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Expense'
+        '400':
+          $ref: '#/components/responses/400Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+        '500':
+          $ref: '#/components/responses/500Error'
+          
+  /expenses/filter?category=Ruoka:
+    get:
+      description: Obtain information about a specific category or shop
+      parameters:
+        - name: filter
+          in: query
+          example: filter?category=Ruoka
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully returned expenses
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Expense'
+        '400':
+          $ref: '#/components/responses/400Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+        '500':
+          $ref: '#/components/responses/500Error'            
+          
+components:
+  schemas:
+    Expense:
+      type: object
+      properties:   
+          id:
+            type: integer
+            example: 1
+          date:
+            type: string
+            example: 2022-12-31
+          amount:
+            type: number
+            example: 129.99
+          shop:
+            type: string
+            example: Prisma
+          category:
+            type: string
+            example: Ruoka
+      
+  responses:
+    400Error:
+      description: Invalid request
+      content:
+        text/plain:
+          schema:
+            type: string
+            example: Invalid value
+    404Error:
+      description: Not found
+      content:
+        text/plain:
+          schema:
+            type: string
+            example: Not found
+    500Error:
+      description: Internal error
+      content:
+        text/plain:
+          schema:
+            type: string
+            example: Internal error
