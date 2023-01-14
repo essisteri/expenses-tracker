@@ -1,27 +1,27 @@
-GET http://localhost:5000/api/expenses/
-
-### vaihda RENDEROSOITTEET
-
-GET http://localhost:5000/api/expenses/filter?amount=80
+GET https://expences-app-essi.onrender.com/api/expenses/
 
 ###
-GET http://localhost:5000/api/expenses/2022/12
+
+GET https://expences-app-essi.onrender.com/api/expenses/filter?shop=prisma
 
 ###
-POST http://localhost:5000/api/expenses HTTP/1.1
+GET https://expences-app-essi.onrender.com/api/expenses/2022/12
+
+###
+POST https://expences-app-essi.onrender.com/api/expenses/ HTTP/1.1
 content-type: application/json
 
 {
-  "date": "2022-12-24",
-  "amount": "2.55",
-  "category": "ruoka",
-  "shop": "sale"
+  "date": "2023-01-14",
+  "amount": "8.99",
+  "category": "viini",
+  "shop": "alko"
 }
 ###
-DELETE http://localhost:5000/api/expenses/5
+DELETE https://expences-app-essi.onrender.com/api/expenses/5
 ###
 
-PUT http://localhost:5000/api/expenses HTTP/1.1
+PUT https://expences-app-essi.onrender.com/api/expenses/ HTTP/1.1
 content-type: application/json
 
 {

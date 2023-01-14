@@ -11,7 +11,7 @@ const getExpenses = async (req, res) => {
       res.send(response);
     }
   } catch (e) {
-    res.send(500);
+    res.sendStatus(500);
   }
 };
 
@@ -19,11 +19,13 @@ const getExpenseById = async (req, res) => {
   const id = parseInt(req.params.id, 10);
   try {
     const response = await expenses.findById(id);
-    if (response) {
-      res.send(response);
+    if (response.length === 1) {
+      res.send(response[0]);
+    } else {
+      res.status(404).json("Not Found");
     }
   } catch (e) {
-    res.send(500);
+    res.sendStatus(500);
   }
 };
 
@@ -36,7 +38,7 @@ const getExpenseBySearch = async (req, res) => {
       res.send(response);
     }
   } catch (e) {
-    res.send(500);
+    res.sendStatus(500);
   }
 };
 
@@ -50,7 +52,7 @@ const getExpenseByMonth = async (req, res) => {
       res.send(response);
     }
   } catch (e) {
-    res.send(500);
+    res.sendStatus(500);
   }
 };
 
@@ -68,19 +70,25 @@ const createExpense = async (req, res) => {
       res.send(expense);
     }
   } catch (e) {
-    res.send(500);
+    res.sendStatus(500);
   }
 };
 
 const deleteExpense = async (req, res) => {
   const id = parseInt(req.params.id, 10);
   try {
+    const result = await expenses.findById(id);
+    if (result.length === 0) {
+      res.status(404).send("Not Found");
+      return;
+    }
+
     const response = await expenses.deleteById(id);
-    if (response) {
-      res.send(`Expense ${id} deleted`);
+    if (response.affectedRows === 1) {
+      res.status(200).send(`Expense ${id} deleted`);
     }
   } catch (e) {
-    res.send(500);
+    res.sendStatus(500);
   }
 };
 
@@ -98,7 +106,7 @@ const updateExpenses = async (req, res) => {
       res.send(`Expense ${expense.id} updated`);
     }
   } catch (e) {
-    res.send(500);
+    res.sendStatus(500);
   }
 };
 
