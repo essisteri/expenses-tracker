@@ -95,5 +95,5 @@ http://localhost:5000/api/expenses/
 
 ### E. Documentation (15%)
 
-15 Concise, meaningful, well- formatted API and README documentation
+15 Concise, meaningful, well- formatted API and README documentation<br>
 _Comment: Not perfect but not poorly either so maybe something between best and second criteria?_
