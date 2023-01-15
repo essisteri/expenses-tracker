@@ -50,11 +50,16 @@ PRIMARY KEY (id)
 Insert some data into the table.
 
 ```
-INSERT INTO expenses (date,amount,category,shop) VALUES ('2022-12-22',145.78,'ruoka','prisma');
-INSERT INTO expenses (date,amount,category,shop) VALUES ('2023-01-14',9.88,'viini','alko');
+INSERT INTO expenses (date,amount,shop,category) VALUES ('2022-12-22',145.78,'Prisma','Ruoka');
+INSERT INTO expenses (date,amount,shop,category) VALUES ('2023-01-14',9.88,'Alko','Viini');
 ```
 
 ##Endpoints
+
+### Frontend
+
+https://expences-app-essi.onrender.com/
+_Nevermind the typo_
 
 ### Backend server adress
 
@@ -77,7 +82,7 @@ http://localhost:5000/api/expenses/
 
 ## Project self evaluation
 
-_I didn't have time to do frontend or do everything perfectly (as a 30+ career changer and mom my time is so limited) but it is nice that I can keep develop this project and maybe later I have a project to my portfolio :relaxed:. I hope this is enough for me to pass the course._
+_I did really simple frontend to view, add and delete expenses. I struggled in the React course, so the code itself is not very neat. Since I am 30+ career changer and mom, I really didn't have time to develop this project more for now, but it is a starting point where to develop the app in the future. I know there is **a lot** to improve, but for me it was nice to accomplish something that works in some level at least. This was my first bigger coding project that I did myself. :relaxed: _
 
 ### A. Solution Design (20%)
 

@@ -31,7 +31,6 @@ const getExpenseById = async (req, res) => {
 
 const getExpenseBySearch = async (req, res) => {
   const search = req.query;
-  // Number(req.query).toFixed(2) (amountin fiksaus)
   try {
     const response = await expenses.findBySearch(search);
     if (response) {
@@ -60,8 +59,8 @@ const createExpense = async (req, res) => {
   const expense = {
     date: req.body.date,
     amount: req.body.amount,
-    category: req.body.category,
     shop: req.body.shop,
+    category: req.body.category,
   };
   try {
     const response = await expenses.save(expense);

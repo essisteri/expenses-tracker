@@ -71,7 +71,7 @@ function App() {
           <input
             required
             pattern="\d{4}-\d{2}-\d{2}"
-            placeholder="YYYY-MM-DD"
+            placeholder="Date YYYY-MM-DD"
             value={newDate}
             onChange={(e) => setNewDate(e.target.value)}
             className="form-control form-control-lg"
@@ -82,7 +82,7 @@ function App() {
           <input
             required
             pattern="^\d*(\.\d{0,2})?$"
-            placeholder="Amount 123,89"
+            placeholder="Amount 123.89"
             value={newAmount}
             onChange={(e) => setNewAmount(e.target.value)}
             className="form-control form-control-lg"
