@@ -5,7 +5,7 @@ import axios from "axios";
 import "./App.css";
 
 function App() {
-  const [tasks, setTasks] = useState([]);
+  const [expenses, setExpenses] = useState([]);
   const [newDate, setNewDate] = useState("");
   const [newAmount, setNewAmount] = useState("");
   const [newCategory, setNewCategory] = useState("");
@@ -18,7 +18,7 @@ function App() {
         `${process.env.REACT_APP_BACKEND}/api/expenses/`
       );
       if (response.data.length > 0) {
-        setTasks(response.data);
+        setExpenses(response.data);
       }
     } catch (e) {
       console.log("Virhe");
@@ -29,23 +29,23 @@ function App() {
     fetchData();
   }, []);
 
-  //Deleting a task
-  const deleteTask = (id) => {
+  //Deleting a expense
+  const deleteExpense = (id) => {
     if (window.confirm("Haluatko varmasti poistaa tehtävän?")) {
       axios
         .delete(`${process.env.REACT_APP_BACKEND}/api/expenses/${id}`)
         .then(() => {
-          let response = tasks.filter((item) => id !== item.id);
-          setTasks(response);
+          let response = expenses.filter((item) => id !== item.id);
+          setExpenses(response);
         });
     }
   };
 
-  //Handling submit / adding a task
+  //Handling submit / adding a expense
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const taskItem = {
+    const expenseItem = {
       date: newDate,
       amount: newAmount,
       category: newCategory,
@@ -53,9 +53,9 @@ function App() {
     };
 
     axios
-      .post(`${process.env.REACT_APP_BACKEND}/api/expenses`, taskItem)
+      .post(`${process.env.REACT_APP_BACKEND}/api/expenses`, expenseItem)
       .then((response) => {
-        setTasks(tasks.concat(response.data));
+        setExpenses(expenses.concat(response.data));
         setNewDate("");
         setNewAmount("");
         setNewCategory("");
@@ -64,7 +64,7 @@ function App() {
   };
 
   return (
-    <div className="tasks">
+    <div className="expenses">
       <h1>Expenses</h1>
 
       <form onSubmit={handleSubmit}>
@@ -126,21 +126,21 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          {tasks.map((task) => {
+          {expenses.map((expense) => {
             return (
-              <tr key={task.id}>
-                <td>{task.date}</td>
+              <tr key={expense.id}>
+                <td>{expense.date}</td>
 
-                <td>{task.amount}</td>
+                <td>{expense.amount}</td>
 
-                <td>{task.shop}</td>
+                <td>{expense.shop}</td>
 
-                <td>{task.category}</td>
+                <td>{expense.category}</td>
 
                 <td>
                   <button
                     className="btn btn-sm btn-danger me-1"
-                    onClick={() => deleteTask(task.id)}
+                    onClick={() => deleteExpense(expense.id)}
                   >
                     Delete
                   </button>

@@ -7,16 +7,24 @@
 
 const express = require("express");
 
-const cors = require("cors");
+// const cors = require("cors");
+
+const bodyParser = require("body-parser");
 const expensesRouter = require("./routes/expenses");
 
 const app = express();
 
-app.use(
-  cors({
-    origin: ["http://localhost:3000", "https://expences-app-essi.onrender.com"],
-  })
-);
+app.use(bodyParser.json());
+
+app.post("/", (request, response) => {
+  response.json(request.body);
+});
+
+// app.use(
+//   cors({
+//     origin: ["http://localhost:3000", "https://expences-app-essi.onrender.com"],
+//   })
+// );
 
 app.use(express.static("frontend/build"));
 
