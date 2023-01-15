@@ -71,8 +71,7 @@ function App() {
           <input
             required
             pattern="\d{4}-\d{2}-\d{2}"
-            placeholder="Date YYYY-MM-DD"
-            type="date"
+            placeholder="YYYY-MM-DD"
             value={newDate}
             onChange={(e) => setNewDate(e.target.value)}
             className="form-control form-control-lg"
