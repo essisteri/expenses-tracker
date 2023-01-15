@@ -139,16 +139,22 @@ paths:
         '500':
           $ref: '#/components/responses/500Error'
           
-  /expenses/filter?category=Ruoka:
+  /expenses/{filter}:
     get:
       description: Obtain information about a specific category or shop
       parameters:
         - name: filter
-          in: query
-          example: filter?category=Ruoka
+          in: path
+          example: filter
           required: true
           schema:
             type: string
+        - name: category
+          in: query
+          example: Ruoka
+          required: true
+          schema:
+            type: string    
       responses:
         '200':
           description: Successfully returned expenses

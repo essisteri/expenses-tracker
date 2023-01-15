@@ -54,7 +54,7 @@ INSERT INTO expenses (date,amount,shop,category) VALUES ('2022-12-22',145.78,'Pr
 INSERT INTO expenses (date,amount,shop,category) VALUES ('2023-01-14',9.88,'Alko','Viini');
 ```
 
-##Endpoints
+## Endpoints
 
 ### Frontend
 
@@ -82,7 +82,7 @@ http://localhost:5000/api/expenses/
 
 ## Project self evaluation
 
-_I did really simple frontend to view, add and delete expenses. I struggled in the React course, so the code itself is not very neat. Since I am 30+ career changer and mom, I really didn't have time to develop this project more for now, but it is a starting point where to develop the app in the future. I know there is **a lot** to improve, but for me it was nice to accomplish something that works in some level at least. This was my first bigger coding project that I did myself. :relaxed: _
+_I did really simple frontend to view, add and delete expenses. I struggled in the React course, so the code itself is not very neat. Since I am 30+ career changer and mom, I really didn't have time to develop this project more for now, but it is a starting point where to develop the app in the future. I know there is **a lot** to improve, but for me it was nice to accomplish something that works in some level at least. This was my first bigger coding project that I did myself._ :relaxed:
 
 ### A. Solution Design (20%)
 
