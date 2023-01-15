@@ -9,7 +9,6 @@ function App() {
   const [newDate, setNewDate] = useState("");
   const [newAmount, setNewAmount] = useState("");
   const [newCategory, setNewCategory] = useState("");
-
   const [newShop, setNewShop] = useState("");
 
   const fetchData = async () => {
@@ -21,7 +20,7 @@ function App() {
         setExpenses(response.data);
       }
     } catch (e) {
-      console.log("Virhe");
+      console.log("Error");
     }
   };
 
@@ -31,7 +30,7 @@ function App() {
 
   //Deleting a expense
   const deleteExpense = (id) => {
-    if (window.confirm("Haluatko varmasti poistaa tehtävän?")) {
+    if (window.confirm("Are you sure to delete an expense?")) {
       axios
         .delete(`${process.env.REACT_APP_BACKEND}/api/expenses/${id}`)
         .then(() => {
@@ -71,7 +70,9 @@ function App() {
         <div className="row">
           <input
             required
+            pattern="\d{4}-\d{2}-\d{2}"
             placeholder="Date YYYY-MM-DD"
+            type="date"
             value={newDate}
             onChange={(e) => setNewDate(e.target.value)}
             className="form-control form-control-lg"
@@ -81,6 +82,7 @@ function App() {
         <div className="row">
           <input
             required
+            pattern="^\d*(\.\d{0,2})?$"
             placeholder="Amount 123,89"
             value={newAmount}
             onChange={(e) => setNewAmount(e.target.value)}
