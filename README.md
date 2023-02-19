@@ -80,27 +80,3 @@ http://localhost:5000/api/expenses/
 |  GET   | api/expenses/filter?shop=prisma    | Filter expenses by shop           |
 |  GET   | api/expenses/2022/12               | Filter expenses by year and month |
 
-## Project self evaluation
-
-_I did really simple frontend to view, add and delete expenses. I struggled in the React course, so the code itself is not very neat. Since I am 30+ career changer and mom, I really didn't have time to develop this project more for now, but it is a starting point where to develop the app in the future. I know there is **a lot** to improve, but for me it was nice to accomplish something that works in some level at least. This was my first bigger coding project that I did myself._ :relaxed:
-
-### A. Solution Design (20%)
-
-12 Solution partially planned out
-
-### B. Execution (30%)
-
-22 Backend is deployed to a hosting service, reachable and responds to mostly correct to API requests
-
-### C. Requirements Satisfaction (20%)
-
-12 Many parts of the Backend implementation requirements are not implemented
-
-### D. Coding Style (15%)
-
-12 Code hard to follow in one reading; poor use of language capabilites
-
-### E. Documentation (15%)
-
-15 Concise, meaningful, well- formatted API and README documentation<br>
-_Comment: Not perfect but not poorly either so maybe something between best and second criteria?_
